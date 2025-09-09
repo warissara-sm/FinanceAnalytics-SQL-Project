@@ -1,0 +1,6 @@
+-- 05 Monthly revenue
+SELECT 
+	TXN_YEAR, TXN_MONTH, ROUND(SUM(AMOUNT),2) AS total_revenue
+FROM fact_banking
+GROUP BY TXN_YEAR, TXN_MONTH
+ORDER BY TXN_YEAR, TXN_MONTH;
