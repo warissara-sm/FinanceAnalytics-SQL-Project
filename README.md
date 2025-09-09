@@ -4,7 +4,7 @@
 This project demonstrates **Finance Analytics using SQL**.  
 It simulates a banking dataset containing **transactions, branches, and products**,  
 then applies **data modeling (Star Schema)**, SQL-based **KPI analysis**,  
-and prepares **BI-ready views** for visualization in **Power BI or Tableau**.  
+and prepares **BI-ready views** for visualization in **Power BI**.  
 
 ---
 
@@ -51,6 +51,6 @@ and prepares **BI-ready views** for visualization in **Power BI or Tableau**.
 ---
 
 ## 🛠 Tools
-- **SQL** → SQLite / MySQL  
+- **SQL** → SQLite  
 - **Power BI** → Dashboard visualization  
 - **GitHub** → Version control & portfolio showcase  
