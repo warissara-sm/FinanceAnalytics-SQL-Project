@@ -3,54 +3,52 @@
 ## 🔎 Overview
 This project demonstrates **Finance Analytics using SQL**.  
 It simulates a banking dataset containing **transactions, branches, and products**,  
-then applies **data modeling (Star Schema)**, SQL-based **KPI analysis**,  
-and prepares **BI-ready views** for visualization in **Power BI**.  
+then applies **data modeling (Star Schema)** and SQL-based **KPI/insight analysis**.  
+All queries are organized step-by-step (01 → 08) in the [`sql/`](sql/) folder.  
 
 ---
 
-## 📂 Dataset Structure
+## 📂 Dataset
+Stored in the [`data/`](data/) folder:
+- **transactions.csv** → Transaction fact table  
+- **branch.csv** → Branch dimension  
+- **products.csv** → Product dimension  
 
-### ⭐ Fact Table: `transactions`
-- `TRANSACTION_DATE` – Transaction date  
-- `TRANSACTION_HOUR` – Hour of transaction  
-- `TRANSACTION_ID` – Unique transaction ID  
-- `CUSTOMER_ID` – Customer identifier  
-- `BRANCH` – Branch code  
-- `PROD_CODE` – Product code  
-- `UNITS` – Units sold / contracts signed  
-- `AMOUNT` – Transaction amount (Revenue / Loan amount / Fees)  
+---
 
-### 🏦 Dimension: `branches`
-- `BRANCH` – Branch code  
-- `CHANNEL` – Distribution channel (e.g., Branch, Online)  
-- `REGION` – Region of branch  
+## 📂 SQL Workflow
+All scripts are stored in [`sql/`](sql/):
 
-### 📦 Dimension: `products`
-- `PROD_CODE` – Product code  
-- `PRODUCT_DIV` – Product division  
-- `PRODUCT_GROUP` – Product group  
-- `PRODUCT_LINE` – Product line (e.g., Loan, Deposit, Insurance)  
+1. **01_create_fact_banking.sql** → Build the `fact_banking` view (join transactions + branch + products)  
+2. **02_kpi_overview.sql** → Generate KPIs (total revenue, customers, transactions, avg revenue/txn)  
+3. **03_top10_branch_revenue.sql** → Top 10 branches by revenue  
+4. **04_productline_revenue_units.sql** → Product line performance (revenue & units)  
+5. **05_monthly_revenue.sql** → Monthly revenue trend  
+6. **06_peak_hours_revenue.sql** → Peak hours with highest revenue  
+7. **07_repeat_customers.sql** → Identify repeat customers (txn > 1)  
+8. **08_rfm_analysis.sql** → RFM-lite analysis (Recency, Frequency, Monetary)  
 
 ---
 
 ## 🚀 How to Run
-1. Import datasets (`transactions.csv`, `branches.csv`, `products.csv`) into **SQLite** / **MySQL**  
-2. Run schema creation script → **`01_schema_and_cleaning.sql`**  
-3. Execute analysis queries → **`02_analysis.sql`**  
-4. Use BI-ready views → **`03_views_for_bi.sql`** and **`04_finance_layer.sql`**  
-5. Connect the database to **Power BI / Tableau** to create dashboards  
+1. Import datasets (`transactions.csv`, `branch.csv`, `products.csv`) into **SQLite**  
+2. Run `01_create_fact_banking.sql` to create the fact view  
+3. Execute subsequent scripts (`02` → `08`) to generate KPIs and insights  
+4. (Optional) Export results or connect to **Power BI / Tableau** for dashboards  
 
 ---
 
 ## 🎯 Key Insights
-- **Total revenue** per *Region / Branch / Channel*  
-- **Product performance** across *Divisions / Groups / Lines*  
-- **Customer segmentation** using *RFM Analysis*  
-- **Peak business hours** for *branch/channel optimization*  
+- **KPI Overview** → Total revenue, unique customers, total transactions, avg revenue/txn  
+- **Branch Performance** → Top 10 branches, revenue by region/channel  
+- **Product Portfolio** → Revenue & units by product line  
+- **Time Trends** → Monthly revenue and peak transaction hours  
+- **Customer Analytics** → Repeat customers and RFM-lite segmentation  
 
 ---
 
 ## 🛠 Tools
 - **SQL** → SQLite  
-- **Power BI** → Dashboard visualization  
+- **Excel** → Pre-cleaning CSVs  
+- **Power BI (optional)** → Dashboard visualization  
 - **GitHub** → Version control & portfolio showcase  
